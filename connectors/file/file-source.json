@@ -1,0 +1,9 @@
+{
+    "name": "file-source",
+    "config": {
+      "connector.class": "org.apache.kafka.connect.file.FileStreamSourceConnector",
+      "file": "/tmp/misc/log-sample.txt",
+      "topic": "connect-test",
+      "name": "file-source"
+    }
+}

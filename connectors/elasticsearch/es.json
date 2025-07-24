@@ -1,0 +1,35 @@
+{
+    "name": "elasticsearch-sink2",
+    "config": {
+        "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+        "tasks.max": "1",
+        "topics": "kafka-workshop4.ecomm.users", 
+        "connection.url": "http://labspod-es01-1:9200",
+        "connection.username": "elastic",
+        "connection.password": "changeme",
+        "key.ignore": "false",
+        "schema.ignore": "true",
+        "behavior.on.null.values": "delete",
+        "drop.invalid.message": "true",
+   
+        "transforms": "InsertKey,extractKey",
+        "transforms.InsertKey.type":"org.apache.kafka.connect.transforms.ValueToKey",
+        "transforms.InsertKey.fields":"id",
+        "transforms.extractKey.type":"org.apache.kafka.connect.transforms.ExtractField$Key",
+        "transforms.extractKey.field":"id",
+
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable": "false",
+        "value.converter": "io.confluent.connect.avro.AvroConverter",
+        "value.converter.schema.registry.url": "http://schema-registry:8081",
+
+        "type.name": "_doc",
+        "write.method": "upsert",
+        "behavior.on.malformed.documents": "warn",
+
+        "flush.synchronous": "true",
+        "batch.size": "200",
+        "max.retries": "5",
+        "retry.backoff.ms": "1000"
+    }
+}

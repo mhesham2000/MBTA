@@ -1,0 +1,11 @@
+{
+    "name": "spool-source",
+    "config": {
+        "connector.class": "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector",
+        "topic": "fix",
+        "input.path": "/tmp/spool/",
+        "input.file.pattern": "^.+\\.txt",
+        "error.path": "/tmp/spool/error/",
+        "finished.path": "/tmp/spool/done/"
+    }
+}

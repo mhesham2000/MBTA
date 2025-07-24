@@ -1,0 +1,36 @@
+{
+  "name": "snowflake-sink",
+  "config": {
+    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+    "tasks.max": "1",
+
+    "topics.regex": "route_traffic",
+
+    "snowflake.url.name": "UFJVTMA-EJA94314.snowflakecomputing.com",
+    "snowflake.user.name": "POIUYTR",  
+    "snowflake.private.key": "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDWuLhaLfBVgf6dKq8YCzyfdpdQV/MhNbQws9tYxjWwvzo1uZxlc1t2Nbs7verJ3craN6fitYSyZwY8TAVeNTa8FFSNS54CF2BhvCexPq8hSAY3KeMC/spR3hZF5xRFFh3SaAE1xnAk7366UnDv3g89A2SX7bXdxi28HLlPvUbDFBpDYyAB7AaZYywIRmX9CUCLtTccMxDXbi4QRcY2Vksx+kRXUawqQY3bsarAIskKWiPpU3sDfkUK4j9OFI4TIy1987sjOkHD0TJBXf6qrFoEDNFu5vnGriKt0GPrO5j0gY2U7uOqMV9jYlCzYZBlMwte3rMxrRckqIgazk77bV2NAgMBAAECggEAAkwZTimwqRGKJP9TE+mcMpk6YYssrZMdWZS1s5Dx+8adUPwqjrFPGLLWzSWpMJNgELlItrW6H43Xn2cxete3PV2QUVoDl5fNbwOW1HV3D97tO24wy2mTcOXJ4jc93HFcofwn4H3o2ZRQYZ5GhA0hp5r02rqZ2AS/R4RyfRu+zpElpC3fNfh41Jn+uWUwPNN23gLSFwCu96TzTnVot/beuCD9BSLcCQRGWN4y6oRViQhDDJrPzuA779BZit5OEJIYJry7+Ik+e+VjmHHokJb9gKHJVC6MzNFqKIPWD9jCwwQzR1WCnUgOZwdVrFp57ijsdBEiZ8Bw0us8eV9JQxsPFwKBgQDvkfJSPHY38bEXbI1yqGazHIHFYupM9PF0fg37LEh2TT2hqy0EVfzazJXmqBAbau1CWibxPhRylo1Ftzya/+WVmsZq7Yq5POY+H1SViuP3H3W+OJ6v+2m1LV5rAItjOL9kxWZV6ROlX34r4rrw8erO3lXOFo2xnRKBZKyoHjzpRwKBgQDlcoQSprl8PGsR+I1VLHXgzye5WVgcTZ1reMOvhR+IdxGHbTTXGD9VW3WpLhIM9tIL5j3aBqFTYU17XZPht5oRCtUvndhLzrUah5h3uqDcPvhURfceo1TdvJFneh4wVpO+fdOpo6mtcusg+T6li+tWH7BWJdPp7oYfUQYZHumsiwKBgBd9ff8mQok1v6GGWVA2xuslDmxmSIcHNW2wtno8W1aOOE7T0/Qq4kIp8UDOldW6ZE0vPcZFygd6T5vYXa7tDHvg0zfE1udW21SYCdkn5zZh9U+TiavDwResvSdMxF4UQGAHIwOlePGsLVjsQFxDvDxQfKVafMY/moLpdix92ocdAoGAU7BRO/xT61yeMQ/XfRmaZUUp2BEecjRdFrYVqg+EUOIdIqhSfaH6d8fEQtDrBI+CTZTNOpjwftkeycB4D/xH1a990sBgBEaBCAwtMH6B7dOKADMEz8gDTF1bK8L+/+KUQQbkDRwE557i5EQE9ZzzWZZ1WvaxNMIraYDEGKWN1cECgYB8XoC7gOgeF7UF8bt92Mm0WWFXnyNQS+OH+v+vZ8yjuTy/AXkBiBJLMxY1JaYE5MGYPpO9omvo8Qdf5uUyY+362nltVVVbwUrcxk577ii1LaHYx9ZF8vQL60NbsUBtV1JdLkBmYfC/gvLj6LMr3gAkUh7mER3D/b8F/H5jg8/Hjg==",
+    "snowflake.database.name": "MBTA_DATA",
+    "snowflake.schema.name": "PUBLIC",
+    "snowflake.role.name": "ACCOUNTADMIN",
+    "snowflake.warehouse.name": "COMPUTE_WH",
+
+
+
+    "buffer.count.records": "10000",
+    "buffer.size.bytes": "10000000",
+    "buffer.flush.time": "60",
+
+   
+    "value.converter": "com.snowflake.kafka.connector.records.SnowflakeJsonConverter",
+    "value.converter.schemas.enable": "false",
+
+
+    "snowflake.metadata.topic2table.map": "route_traffic:ROUTE_TRAFFIC",
+
+    
+    "auto.create.tables": "true",  
+    "errors.tolerance": "all"
+
+
+  }
+}
